@@ -2,10 +2,30 @@
 $error = false;
 $mensagens = '';
 
-$_POST['nome'] ? $nome = $_POST['nome'] : adicionaMensagemErro('nome') ;
+if($_POST['nome']) {
+$nome = $_POST['nome'];
+    if(strlen($nome) < 6){
+        $error = true;
+        $mensagens .= "O campo nome deve conter pelo menos 6 caracteres. ";
+    };
+} else {
+adicionaMensagemErro('nome') ;
+}
+if($_POST["senha"]){
+ $senha = $_POST["senha"];
+    if(strlen($senha) < 10){
+        $error = true;
+        $mensagens .= "O campo senha deve conter pelo menos 10 caracteres. ";
+    };
+} else {
+adicionaMensagemErro('senha');
+}
+
 $_POST['sobrenome'] ? $sobrenome = $_POST['sobrenome'] : adicionaMensagemErro('sobrenome');
+$_POST['idade'] ? $idade = $_POST['idade'] : adicionaMensagemErro('idade');
+$_POST['nome_pai'] ? $nome_pai = $_POST['nome_pai'] : adicionaMensagemErro('nome_pai');
+$_POST['nome_mae'] ? $nome_mae = $_POST['nome_mae'] : adicionaMensagemErro('nome_mae');
 $_POST["email"] ? $email = $_POST["email"] : adicionaMensagemErro('email');
-$_POST["senha"] ? $senha = $_POST["senha"] : adicionaMensagemErro('senha');
 $_POST["telefone"] ? $telefone = $_POST["telefone"] : adicionaMensagemErro('telefone');
 $_POST["pais"] ? $pais = $_POST["pais"] : adicionaMensagemErro('país');
 $_POST["estado"] ? $estado = $_POST["estado"] : adicionaMensagemErro('estado');
@@ -14,16 +34,6 @@ $_POST["bairro"] ? $bairro = $_POST["bairro"] : adicionaMensagemErro('bairro');
 $_POST["logradouro"] ? $logradouro = $_POST["logradouro"] : adicionaMensagemErro('logradouro');
 $_POST["rua"] ? $rua = $_POST["rua"] : adicionaMensagemErro('rua') ;
 $_POST["numero_casa"] ? $numero_casa = $_POST["numero_casa"] : adicionaMensagemErro('numero da casa');
-
-if(strlen($nome) < 6){
-    $error = true;
-    $mensagens .= "O campo nome deve conter pelo menos 6 caracteres. ";
-};
-
-if(strlen($senha) < 10){
-    $error = true;
-    $mensagens .= "O campo senha deve conter pelo menos 10 caracteres. ";
-};
 
 function adicionaMensagemErro($field){
     global $error;

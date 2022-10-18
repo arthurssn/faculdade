@@ -13,13 +13,25 @@
 <div class="container">
     <h1>Formulário IBGE</h1>
     <form action="recebe_dados.php" method="post">
-        <div class="mb-3 col">
+        <div class="mb-3">
             <label class="form-label" for="nome">Nome</label>
             <input class="form-control" id="nome" type="text" name="nome" >
-            <div class="mb-3">
+        </div>
+        <div class="mb-3">
                 <label class="form-label" for="sobrenome">Sobrenome</label>
                 <input class="form-control" id="sobrenome" type="text" name="sobrenome">
-            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="idade">Idade</label>
+            <input class="form-control" id="idade" type="number" name="idade" min="0">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="pai">Nome do pai</label>
+            <input class="form-control" id="pai" type="text" name="nome_pai" >
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="mae">Nome da mae</label>
+            <input class="form-control" id="mae" type="text" name="nome_mae" >
         </div>
         <div class="mb-3">
             <label class="form-label" for="email">Email</label>
